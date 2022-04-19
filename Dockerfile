@@ -21,7 +21,7 @@ RUN apk add -U --no-cache ca-certificates && apk add build-base
 ENV GO111MODULE=on
 
 # Build Delve
-RUN go install GOOS=linux GOARCH=${BUILDPLATFORM} github.com/go-delve/delve/cmd/dlv@latest
+RUN GOOS=linux GOARCH=${BUILDPLATFORM} go install github.com/go-delve/delve/cmd/dlv@latest
 
 WORKDIR /app
 
